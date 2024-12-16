@@ -1,0 +1,56 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logic Gate Workflow to Simulation Converter + PCB Layout Generator</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-b from-gray-800 to-black text-white min-h-screen flex flex-col items-center justify-start pt-10 overflow-hidden">
+    <div class="text-center p-6">
+        <h1 class="text-2xl md:text-4xl font-bold mb-4">Logic Gate Workflow to Simulation Converter + PCB Layout Generator</h1>
+        <p class="text-lg md:text-2xl">Convert logic workflows into simulations and generate PCB layouts</p>
+    </div>
+    <div class="flex flex-col items-center justify-center w-full h-full mt-6 relative">
+        <div class="bg-gray-700 w-full md:w-1/2 h-64 md:h-3/4 flex items-center justify-center rounded-lg">
+            <button id="enable-camera" class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75">
+                Enable Camera
+            </button>
+        </div>
+        <div id="video-container" class="hidden bg-gray-700 w-full md:w-1/2 h-64 md:h-3/4 flex items-center justify-center rounded-lg mt-6">
+            <video id="video-stream" class="w-full h-full object-cover rounded-lg" autoplay></video>
+        </div>
+    </div>
+    <script>
+        document.getElementById('enable-camera').addEventListener('click', function() {
+            document.getElementById('video-container').classList.remove('hidden');
+            document.getElementById('enable-camera').classList.add('hidden');
+
+            // Get the video element
+            const videoElement = document.getElementById('video-stream');
+            
+            // Access user's camera
+            navigator.mediaDevices.getUserMedia({ video: true })
+                .then(function(stream) {
+                    console.log("Camera stream started: ", stream); // Log the stream object
+                    // If camera access is successful, set the video source
+                    videoElement.srcObject = stream;
+                    // Ensure the video plays
+                    videoElement.play();
+                })
+                .catch(function(err) {
+                    console.log("Error accessing the camera: ", err);
+                });
+
+            // Optionally, you can keep the Flask stream running in parallel
+             //videoElement.src = '/video';  // Ensure this matches the Flask route
+        });
+    </script>
+</body>
+</html>

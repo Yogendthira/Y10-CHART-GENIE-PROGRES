@@ -1,0 +1,73 @@
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Y10 Chart Genie</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"/>
+    <style>
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-b from-gray-700 to-black text-gray-300 font-roboto">
+    <div id="start-page" class="min-h-screen flex flex-col items-center justify-center">
+        <h1 class="text-6xl font-bold mb-10" style="font-family: 'Orbitron', sans-serif;">Y10 Chart Genie</h1>
+        <div class="bg-gray-800 p-8 rounded-lg shadow-lg w-full max-w-sm">
+            <form>
+                <div class="mb-4">
+                    <label class="block text-gray-300 text-sm font-bold mb-2" for="username">Username</label>
+                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" placeholder="Username"/>
+                </div>
+                <div class="mb-6">
+                    <label class="block text-gray-300 text-sm font-bold mb-2" for="password">Password</label>
+                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" id="password" type="password" placeholder="********"/>
+                </div>
+                <div class="flex items-center justify-between">
+                    <button class="bg-gradient-to-r from-gray-700 to-gray-500 text-black rounded-lg p-3 shadow-lg hover:from-gray-600 hover:to-gray-400 transition border-2 border-gray-500 w-full" type="button" onclick="showMainPage()">Log In</button>
+                </div>
+            </form>
+        </div>
+        <div class="bg-gray-800 p-8 rounded-lg shadow-lg w-full max-w-sm mt-4">
+            <button class="bg-gradient-to-r from-gray-700 to-gray-500 text-black rounded-lg p-3 shadow-lg hover:from-gray-600 hover:to-gray-400 transition border-2 border-gray-500 w-full" type="button" onclick="showMainPage()">Get Started Without an Account</button>
+        </div>
+    </div>
+    <div id="main-page" class="min-h-screen flex flex-col items-center justify-center hidden">
+        <button onclick="showStartPage()" class="absolute top-4 left-4 bg-gray-700 text-black rounded-lg p-3 shadow-lg hover:bg-gray-600 transition border-2 border-gray-500">
+            <i class="fas fa-arrow-left"></i>
+        </button>
+        <h1 class="text-6xl font-bold mb-10" style="font-family: 'Orbitron', sans-serif;">Y10 Chart Genie</h1>
+        <div class="flex flex-col gap-6 w-full max-w-2xl px-4">
+            <button class="bg-gradient-to-r from-gray-700 to-gray-500 text-black rounded-lg p-6 flex flex-col items-center shadow-lg hover:from-gray-600 hover:to-gray-400 transition border-2 border-gray-500">
+                <span class="text-xl font-semibold">Logic Gate Workflow to Simulation Converter + PCB Layout Generator</span>
+                <p class="mt-2 text-center">Convert logic workflows into simulations and generate PCB layouts.</p>
+            </button>
+            <button class="bg-gradient-to-r from-gray-700 to-gray-500 text-black rounded-lg p-6 flex flex-col items-center shadow-lg hover:from-gray-600 hover:to-gray-400 transition border-2 border-gray-500">
+                <span class="text-xl font-semibold">Flowchart to Code Converter</span>
+                <p class="mt-2 text-center">Transform flowcharts into executable code effortlessly.</p>
+            </button>
+            <button class="bg-gradient-to-r from-gray-700 to-gray-500 text-black rounded-lg p-6 flex flex-col items-center shadow-lg hover:from-gray-600 hover:to-gray-400 transition border-2 border-gray-500">
+                <span class="text-xl font-semibold">Hand Drawn Optics to Digital Simulations for Studying Light Paths</span>
+                <p class="mt-2 text-center">Convert hand-drawn optics sketches into digital simulations.</p>
+            </button>
+            <button class="bg-gradient-to-r from-gray-700 to-gray-500 text-black rounded-lg p-6 flex flex-col items-center shadow-lg hover:from-gray-600 hover:to-gray-400 transition border-2 border-gray-500">
+                <span class="text-xl font-semibold">Design Patterns to Textile Printing</span>
+                <p class="mt-2 text-center">Create textile prints from design patterns seamlessly.</p>
+            </button>
+        </div>
+    </div>
+    <script>
+        function showMainPage() {
+            document.getElementById('start-page').classList.add('hidden');
+            document.getElementById('main-page').classList.remove('hidden');
+        }
+        function showStartPage() {
+            document.getElementById('main-page').classList.add('hidden');
+            document.getElementById('start-page').classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>
